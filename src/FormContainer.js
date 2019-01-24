@@ -78,11 +78,6 @@ export default class FormContainer extends Component {
       <div className="form-container">
         <form>
           <h1>this is it</h1>
-          <AboutYou 
-          value={this.state.newUser.about}
-          handleChange={e => this.handleTextArea(e)}/>
-          <Button options={this.state.buttonOptions}
-          onPush={this.handleButton}/>
           <Input
             inputType={"text"}
             title={"Full Name"}
@@ -106,8 +101,11 @@ export default class FormContainer extends Component {
             selectedOptions={this.state.newUser.skills}
             handleChange={(e) => this.handleCheckBox(e)}
           />
-          <Button type="submit" name="Submit"/>
-          <Button type="button" name="Clear"/>
+          <AboutYou 
+          value={this.state.newUser.about}
+          handleChange={e => this.handleTextArea(e)}/>
+          <Button options={this.state.buttonOptions}
+          onPush={this.handleButton}/>
         </form>
       </div>
     )
