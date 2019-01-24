@@ -4,6 +4,7 @@ import Input from './components/Input';
 import Select from './components/Select';
 import AboutYou from './components/AboutYou';
 import Button from './components/Button';
+import TextArea from './components/TextArea';
 
 export default class FormContainer extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ export default class FormContainer extends Component {
         name: '',
         age: '',
         gender: '',
-        skills: []
+        skills: [],
+        about: ''
       },
       skillOptions: ['React', 'React Native', 'Redux', 'Mongoose'],
       genderOptions: ["Male", "Female", "Others"]
@@ -52,6 +54,15 @@ export default class FormContainer extends Component {
     }));
   }
 
+  handleTextArea(e) {
+    console.log('Inside handleTextArea');
+    let value = e.target.value;
+    this.setState( prevState => ({
+      newUser: {...prevState.newUser, about: value}
+    }), () => console.log(this.state.newUser)
+    );
+  }
+
   render() {
     return (
       <div className="form-container">
@@ -80,6 +91,14 @@ export default class FormContainer extends Component {
             options={this.state.skillOptions}
             selectedOptions={this.state.newUser.skills}
             handleChange={(e) => this.handleCheckBox(e)}
+          />
+          <TextArea 
+            title={'About you.'}
+            rows={10}
+            value={this.state.newUser.about}
+            name={'currentPetInfo'}
+            handleChange={e => this.handleTextArea(e)}
+            placeholder={'Tell us about yourself'}
           />
           <Button type="submit" name="Submit"/>
           <Button type="button" name="Clear"/>
