@@ -106,6 +106,8 @@ export default class FormContainer extends Component {
             selectedOptions={this.state.newUser.skills}
             handleChange={(e) => this.handleCheckBox(e)}
           />
+          <Button type="submit" name="Submit"/>
+          <Button type="button" name="Clear"/>
         </form>
       </div>
     )
