@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Checkbox from './components/Checkbox';
 import Input from './components/Input';
 import Select from './components/Select';
+import AboutYou from './components/AboutYou';
+import Button from './components/Button';
 
 export default class FormContainer extends Component {
   constructor(props) {
@@ -52,7 +54,12 @@ export default class FormContainer extends Component {
 
   render() {
     return (
+      <div className="form-container">
         <form>
+          <h1>this is it</h1>
+          <AboutYou />
+          <Button type="submit" name="Submit"/>
+          <Button type="button" name="Clear"/>
           <Input
             inputType={"text"}
             title={"Full Name"}
@@ -77,6 +84,7 @@ export default class FormContainer extends Component {
             handleChange={(e) => this.handleCheckBox(e)}
           />
         </form>
+      </div>
     )
   }
 }
