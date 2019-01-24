@@ -58,8 +58,6 @@ export default class FormContainer extends Component {
         <form>
           <h1>this is it</h1>
           <AboutYou />
-          <Button type="submit" name="Submit"/>
-          <Button type="button" name="Clear"/>
           <Input
             inputType={"text"}
             title={"Full Name"}
@@ -83,6 +81,8 @@ export default class FormContainer extends Component {
             selectedOptions={this.state.newUser.skills}
             handleChange={(e) => this.handleCheckBox(e)}
           />
+          <Button type="submit" name="Submit"/>
+          <Button type="button" name="Clear"/>
         </form>
       </div>
     )
