@@ -84,8 +84,8 @@ export default class ThinkfulLogin extends Component {
                 />
                 <ButtonNew 
                     action={e => this.handleFormSubmit(e)}
-                    title={'Submit'}
-                    name={'submit'}
+                    title={'Sign in'}
+                    name={'signin'}
                 />{" "}
             </form>
         </div>

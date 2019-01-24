@@ -18,3 +18,76 @@ code {
   background: none;
 }
 
+.top-level-container {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-label {
+  display: block;
+  font-size: 16px;
+  line-height: 36px;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  display: block;
+  font-weight: 400;
+  font-style: normal;
+  height: 42px;
+  width: 544px;
+  min-width: 210px;
+  max-width: 100%;
+  padding-top: 6px;
+  padding-bottom: 5px;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-bottom: 15px;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 36px;
+}
+
+.form-control:focus {
+  box-shadow: 0 2px 24px 0 rgba(0,0,0,.2);
+  outline: none;
+  border-color: transparent;
+}
+
+.btn, input[type='submit'] {
+  font-family: 'MaisonNeue-Bold','Helvetica',sans-serif;
+  font-style: normal;
+  position: relative;
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  line-height: 24px;
+  min-width: 130px;
+  max-width: 100%;
+  border: 1px solid transparent;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 2px;
+  cursor: pointer;
+  margin: 10px 10px 10px 0px;
+  transition: background-color .3s ease,border-color .3s ease;
+}
+
+.btn-primary {
+  background-color: #272727;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #979797;
+  color: #272727;
+}
+
+::selection {
+  background: #979797;
+  color: #fff;
+}

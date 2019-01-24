@@ -5,11 +5,16 @@ import Select from './components/Select';
 import AboutYou from './components/AboutYou';
 import Button from './components/Button';
 import TextArea from './components/TextArea';
+import ButtonNew from './components/ButtonNew';
 
 export default class FormContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = this.getInitialState();
+  }
+
+  getInitialState = () => {
+    const initialState = {
       newUser: {
         name: '',
         age: '',
@@ -20,6 +25,8 @@ export default class FormContainer extends Component {
       skillOptions: ['React', 'React Native', 'Redux', 'Mongoose'],
       genderOptions: ["Male", "Female", "Others"]
     }
+
+    return initialState;
   }
 
   handleInput(e) {
@@ -63,12 +70,24 @@ export default class FormContainer extends Component {
     );
   }
 
+  handleFormSubmit(e) {
+    e.preventDefault();
+    let userData = this.state.newUser;
+
+    console.log(`User input data is ${JSON.stringify(userData)}`);
+  }
+
+  handleClearForm(e) {
+    e.preventDefault();
+    this.setState(this.getInitialState())
+  }
+
   render() {
     return (
-      <div className="form-container">
+      <div className="top-level-container">
         <form>
           <h1>this is it</h1>
-          <AboutYou />
+          {/* <AboutYou /> */}
           <Input
             inputType={"text"}
             title={"Full Name"}
@@ -100,8 +119,20 @@ export default class FormContainer extends Component {
             handleChange={e => this.handleTextArea(e)}
             placeholder={'Tell us about yourself'}
           />
-          <Button type="submit" name="Submit"/>
-          <Button type="button" name="Clear"/>
+          {/* <Button type="submit" name="Submit"/>
+          <Button type="button" name="Clear"/> */}
+          <ButtonNew 
+            action={e => this.handleFormSubmit(e)}
+            type={'primary'}
+            title={'Submit'}
+            name={'submit'}
+          />
+          <ButtonNew 
+            action={e => this.handleClearForm(e)}
+            type={'secondary'}
+            title={'Clear'}
+            name={'clear'}
+          />
         </form>
       </div>
     )

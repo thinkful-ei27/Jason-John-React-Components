@@ -6,8 +6,9 @@ import './skeleton.css';
 import ThinkfulLogin from './containers/ThinkfulLogin';
 import * as serviceWorker from './serviceWorker';
 import InvoicingCalculator from './containers/InvoicingCalculator';
+import FormContainer from './FormContainer';
 
-ReactDOM.render(<InvoicingCalculator />, document.getElementById('root'));
+ReactDOM.render(<FormContainer />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
