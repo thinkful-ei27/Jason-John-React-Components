@@ -13,11 +13,25 @@ export default class FormContainer extends Component {
         name: '',
         age: '',
         gender: '',
-        skills: []
+        skills: [],
+        about: ''
       },
+      buttonOptions: [{
+        type: 'Submit',
+        name:'Submit'
+      }, 
+      {
+        type:'Clear',
+        name:'Clear'
+      }],
+      
       skillOptions: ['React', 'React Native', 'Redux', 'Mongoose'],
       genderOptions: ["Male", "Female", "Others"]
     }
+  }
+
+  handleButton(target) {
+    console.log(`the ${target.className} button was pushed`);
   }
 
   handleInput(e) {
@@ -32,6 +46,13 @@ export default class FormContainer extends Component {
         }
       }), () => console.log(this.state.newUser)
     );
+  }
+
+  handleTextArea(e) { 
+    let value = e.target.value; 
+    this.setState( prevState => ({ 
+      newUser: {...prevState.newUser, about: value} 
+    }), () => console.log(this.state.newUser.about)); 
   }
 
   handleCheckBox(e) {
@@ -57,9 +78,11 @@ export default class FormContainer extends Component {
       <div className="form-container">
         <form>
           <h1>this is it</h1>
-          <AboutYou />
-          <Button type="submit" name="Submit"/>
-          <Button type="button" name="Clear"/>
+          <AboutYou 
+          value={this.state.newUser.about}
+          handleChange={e => this.handleTextArea(e)}/>
+          <Button options={this.state.buttonOptions}
+          onPush={this.handleButton}/>
           <Input
             inputType={"text"}
             title={"Full Name"}
