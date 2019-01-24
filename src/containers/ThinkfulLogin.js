@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Input from '../components/Input';
 import ButtonNew from '../components/ButtonNew';
 import './ThinkfulLogin.css';
+import DataList from '../components/DataList';
 
 export default class ThinkfulLogin extends Component {
     constructor(props) {
@@ -10,8 +11,23 @@ export default class ThinkfulLogin extends Component {
             user: {
                 email: '',
                 password: '',
-                username: ''
-            }
+                username: '',
+                favoriteStudent: ''
+            },
+            students: [
+                'John Young',
+                'Jason Hoffman',
+                'Khari Riv',
+                'Marwan Alaloosi',
+                'Derek Houck',
+                'Nick Johnston',
+                'Evan Guirino',
+                'Mikey Manoguerra',
+                'Tyler Crabb',
+                'Jordan Heffernan',
+                'David Johnson',
+                'Peter Ramos'
+            ]
         }
     }
 
@@ -56,6 +72,16 @@ export default class ThinkfulLogin extends Component {
                     value={this.state.user.password}
                     handleChange={e => this.handleInput(e)}
                 />{" "}
+                <DataList 
+                    textName={'favoriteStudent'}
+                    list={'students'}
+                    name={'students'}
+                    title={'Students'}
+                    id={'students'}
+                    value={this.state.user.favoriteStudent}
+                    options={this.state.students}
+                    handleChange={e => this.handleInput(e)}
+                />
                 <ButtonNew 
                     action={e => this.handleFormSubmit(e)}
                     title={'Submit'}
