@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Checkbox from './components/Checkbox';
 import Input from './components/Input';
+import Select from './components/Select';
 
 export default class FormContainer extends Component {
   constructor(props) {
@@ -8,9 +9,12 @@ export default class FormContainer extends Component {
     this.state = {
       newUser: {
         name: '',
+        age: '',
+        gender: '',
         skills: []
       },
-      skillOptions: ['React', 'React Native', 'Redux', 'Mongoose']
+      skillOptions: ['React', 'React Native', 'Redux', 'Mongoose'],
+      genderOptions: ["Male", "Female", "Others"]
     }
   }
 
@@ -55,6 +59,14 @@ export default class FormContainer extends Component {
             name={"name"}
             value={this.state.newUser.name}
             placeholder={"Enter your name"}
+            handleChange={e => this.handleInput(e)}
+          />
+          <Select 
+            title={'Gender'}
+            name={'gender'}
+            options={this.state.genderOptions}
+            value={this.state.newUser.gender}
+            placeholder={'Select Gender'}
             handleChange={e => this.handleInput(e)}
           />
           <Checkbox 
